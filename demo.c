@@ -1,6 +1,7 @@
 #include "terminal.h"
 #include "colour.h"
 
+#include <stdbool.h>
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -17,5 +18,9 @@ int main() {
     pcReset(&terminal);
     pcSetBackground(&terminal, c);
     printf("struct PcColour size:\n");
+    pcSetItalic(&terminal, true);
+    printf("This is italic, ");
+    pcSetItalic(&terminal, false);
+    printf("and this is not...");
     return  EXIT_SUCCESS;
 }

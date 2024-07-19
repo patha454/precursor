@@ -48,6 +48,17 @@ void pcSetBold(struct PcTerminal* terminal, bool bold)
     }
 }
 
+void pcSetItalic(struct PcTerminal* terminal, bool enable)
+{
+    if (enable)
+    {
+        fputs("\x1b[3m", terminal->out);
+    } else
+    {
+        fputs("\x1b[23m", terminal->out);
+    }
+}
+
 void pcReset(struct PcTerminal* terminal)
 {
     char* code = "\x1b[0m";

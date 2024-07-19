@@ -49,6 +49,15 @@ void pcSetBackground(struct PcTerminal* terminal, pc_colour_t colour);
  */
 void pcSetBold(struct PcTerminal* terminal, bool enable);
 
+/**
+ *
+ * Controls the use of italics text.
+ *
+ * \param terminal Terminal instance to modify.
+ * \param enable indicates if future output should be itatics'ed.
+ */
+void pcSetItalic(struct PcTerminal* terminal, bool enable);
+
 void pcReset(struct PcTerminal* terminal);
 
 #endif //PRECURSOR_TERMINAL_H
