@@ -26,7 +26,7 @@ void pcSetForeground(struct PcTerminal* terminal, pc_colour_t colour)
     );
 }
 
-void useBgAnsiTruecolour(struct PcTerminal* terminal, pc_colour_t colour)
+void pcSetBackground(struct PcTerminal* terminal, pc_colour_t colour)
 {
     fprintf(
         terminal->out,
@@ -35,6 +35,17 @@ void useBgAnsiTruecolour(struct PcTerminal* terminal, pc_colour_t colour)
         colour.green,
         colour.blue
     );
+}
+
+void pcSetBold(struct PcTerminal* terminal, bool bold)
+{
+    if (bold)
+    {
+        fputs("\x1b[1m", terminal->out);
+    } else
+    {
+        fputs("\x1b[22m", terminal->out);
+    }
 }
 
 void pcReset(struct PcTerminal* terminal)

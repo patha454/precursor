@@ -41,6 +41,14 @@ void pcSetForeground(struct PcTerminal* terminal, pc_colour_t colour);
  */
 void pcSetBackground(struct PcTerminal* terminal, pc_colour_t colour);
 
+/**
+ * Controls the use of bold text.
+ *
+ *\param terminal Terminal instance to modify.
+ *\param enable Indicates if future output should be em-boldend.
+ */
+void pcSetBold(struct PcTerminal* terminal, bool enable);
+
 void pcReset(struct PcTerminal* terminal);
 
 #endif //PRECURSOR_TERMINAL_H
