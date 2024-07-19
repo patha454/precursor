@@ -32,7 +32,7 @@ jobs:
           - os: windows-latest
             c_compiler: clang
           - os: ubuntu-24.04
-            c_compiler: gl
+            c_compiler: cl
 
     steps:
     - uses: actions/checkout@v4
