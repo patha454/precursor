@@ -9,10 +9,8 @@
 int main()
 {
     const struct PcTerminal terminal = ansiTerminal;
-    for (unsigned int i = 0; i < 256; i += 32)
-    {
-        for (unsigned int j = 0; j < 256; j += 32)
-        {
+    for (unsigned int i = 0; i < 256; i += 32) {
+        for (unsigned int j = 0; j < 256; j += 32) {
             const pc_colour_t fg = PcColour(i, j, 128);
             const pc_colour_t bg = PcColour(128, i, j);
             terminal.setForeground(stdout, fg);

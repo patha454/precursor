@@ -13,15 +13,14 @@
 #ifndef PRECURSOR_TERMINAL_H
 #define PRECURSOR_TERMINAL_H
 
+#include "colour.h"
 #include <stdbool.h>
 #include <stdio.h>
-#include "colour.h"
-
 
 /**
  * Select a colour to be used in future writes to the terminal.
  */
-typedef void (*set_colour_t)(FILE *terminal, pc_colour_t colour);
+typedef void (*set_colour_t)(FILE* terminal, pc_colour_t colour);
 
 /**
  * Enable or disable an an output mode for future writes to the terminal.
@@ -29,7 +28,7 @@ typedef void (*set_colour_t)(FILE *terminal, pc_colour_t colour);
  * An output mode may be a text style - such as bold or italics - or an output
  * mode - such as the alternative screen.
  */
-typedef void (*enable_mode_t)(FILE *terminal, bool enable);
+typedef void (*enable_mode_t)(FILE* terminal, bool enable);
 
 /**
  * Toggle a single-shot control for a terminal.
@@ -37,8 +36,7 @@ typedef void (*enable_mode_t)(FILE *terminal, bool enable);
  * The classic single-shot control is resetting the terminal to its original
  * styling.
  */
-typedef void (*toggle_mode_t)(FILE *terminal);
-
+typedef void (*toggle_mode_t)(FILE* terminal);
 
 /**
  * A device with rich I/O capabilities.
@@ -56,8 +54,7 @@ typedef void (*toggle_mode_t)(FILE *terminal);
  *
  * `PcTerminal` abstracts
  */
-struct PcTerminal
-{
+struct PcTerminal {
 
     /** Change the foreground colour for future writes. */
     set_colour_t setForeground;
@@ -75,5 +72,4 @@ struct PcTerminal
     toggle_mode_t reset;
 };
 
-
-#endif //PRECURSOR_TERMINAL_H
+#endif // PRECURSOR_TERMINAL_H
