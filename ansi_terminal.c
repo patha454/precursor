@@ -9,6 +9,7 @@
 
 
 #include "terminal.h"
+#include <stdbool.h>
 
 static void ansiSetForeground(FILE *terminal, const pc_colour_t colour)
 {

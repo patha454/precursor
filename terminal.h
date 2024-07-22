@@ -13,6 +13,7 @@
 #ifndef PRECURSOR_TERMINAL_H
 #define PRECURSOR_TERMINAL_H
 
+#include <stdbool.h>
 #include <stdio.h>
 #include "colour.h"
 
