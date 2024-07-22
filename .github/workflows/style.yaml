@@ -7,4 +7,4 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: clang-format
-      run: find . -name '*.c' -or -name '*.h' | xargsclang-format -style=file -dry-run -Werror
+      run: find . -name '*.c' -or -name '*.h' | xargs clang-format -style=file -dry-run -Werror
