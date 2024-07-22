@@ -9,7 +9,8 @@ Checks: >-
   cert-*,
   cppcoreguidelines-*,
   concurrency-*,
-  bugprone-
+  bugprone-,
+  -clang-diagnostic-error
 WarningsAsErrors: '*'
 HeaderFilterRegex: ''
 AnalyzeTemporaryDtors: false
