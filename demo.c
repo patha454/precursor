@@ -5,7 +5,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-int main() {
+int main()
+{
     struct PcTerminal terminal = ansiTerminal;
     for (unsigned int i = 0; i < 256; i += 32)
     {
