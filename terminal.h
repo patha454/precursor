@@ -20,7 +20,7 @@
 /**
  * Select a colour to be used in future writes to the terminal.
  */
-typedef void (*set_colour_t)(FILE* terminal, pc_colour_t colour);
+typedef void (*set_colour_t)(FILE *terminal, pc_colour_t colour);
 
 /**
  * Enable or disable an an output mode for future writes to the terminal.
@@ -28,7 +28,7 @@ typedef void (*set_colour_t)(FILE* terminal, pc_colour_t colour);
  * An output mode may be a text style - such as bold or italics - or an output
  * mode - such as the alternative screen.
  */
-typedef void (*enable_mode_t)(FILE* terminal, bool enable);
+typedef void (*enable_mode_t)(FILE *terminal, bool enable);
 
 /**
  * Toggle a single-shot control for a terminal.
@@ -36,7 +36,7 @@ typedef void (*enable_mode_t)(FILE* terminal, bool enable);
  * The classic single-shot control is resetting the terminal to its original
  * styling.
  */
-typedef void (*toggle_mode_t)(FILE* terminal);
+typedef void (*toggle_mode_t)(FILE *terminal);
 
 
 /**

@@ -1,0 +1,17 @@
+---
+Checks: >-
+  readability-*,
+  portability-*,
+  performance-*,
+  modernize-*,
+  misc-*,
+  hicpp-*,
+  cert-*,
+  cppcoreguidelines-*,
+  concurrency-*,
+  bugprone-
+WarningsAsErrors: '*'
+HeaderFilterRegex: ''
+AnalyzeTemporaryDtors: false
+FormatStyle: file
+...

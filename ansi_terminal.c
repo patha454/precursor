@@ -10,7 +10,7 @@
 
 #include "terminal.h"
 
-static void ansiSetForeground(FILE* terminal, const pc_colour_t colour)
+static void ansiSetForeground(FILE *terminal, const pc_colour_t colour)
 {
     fprintf(
         terminal,
@@ -18,10 +18,10 @@ static void ansiSetForeground(FILE* terminal, const pc_colour_t colour)
         colour.red,
         colour.green,
         colour.blue
-    );
+        );
 }
 
-static void ansiSetBackground(FILE* terminal, const pc_colour_t colour)
+static void ansiSetBackground(FILE *terminal, const pc_colour_t colour)
 {
     fprintf(
         terminal,
@@ -29,10 +29,10 @@ static void ansiSetBackground(FILE* terminal, const pc_colour_t colour)
         colour.red,
         colour.green,
         colour.blue
-    );
+        );
 }
 
-static void ansiSetBold(FILE* terminal, const bool bold)
+static void ansiSetBold(FILE *terminal, const bool bold)
 {
     if (bold)
     {
@@ -43,7 +43,7 @@ static void ansiSetBold(FILE* terminal, const bool bold)
     }
 }
 
-static void ansiSetItalic(FILE* terminal, const bool enable)
+static void ansiSetItalic(FILE *terminal, const bool enable)
 {
     if (enable)
     {
@@ -54,9 +54,9 @@ static void ansiSetItalic(FILE* terminal, const bool enable)
     }
 }
 
-static void ansiReset(FILE* terminal)
+static void ansiReset(FILE *terminal)
 {
-    const char* code = "\x1b[0m";
+    const char *code = "\x1b[0m";
     fputs(code, terminal);
 }
 
