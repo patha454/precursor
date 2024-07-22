@@ -7,8 +7,6 @@
 
 int main() {
     struct PcTerminal terminal = ansiTerminal;
-    pc_colour_t c = PcColour(198, 55, 137);
-
     for (unsigned int i = 0; i < 256; i += 32)
     {
         for (unsigned int j = 0; j < 256; j += 32)
