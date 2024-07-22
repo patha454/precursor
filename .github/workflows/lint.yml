@@ -1,0 +1,15 @@
+name: Lint
+on: push
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v4
+    - name: Install clang-tidy
+      run: sudo apt-get install clang-tidy
+    - name: Generate compile commands
+      run: CC=clang CXX=clang cmake -DCMAKE_EXPORT_COMPILE_COMMANDS=ON -B build
+    - name: clang-tidy
+      run: find libprim prim_app -name *.h -o -name *.c | xargs -i clang-tidy --config="" -p build/compile_commands.json {} -- -Ilibprim/include -Iprim_app/include
