@@ -11,8 +11,9 @@ add_library(precursor SHARED
         demo.c
         colour.h
         terminal.h
-        terminal.c
         colour.c
+        ansi_terminal.c
+        ansi_terminal.h
 )
 
 add_executable(precursor_demo demo.c)

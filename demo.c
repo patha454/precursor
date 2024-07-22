@@ -1,25 +1,30 @@
 #include "terminal.h"
 #include "colour.h"
+#include "ansi_terminal.h"
 
 #include <stdio.h>
 #include <stdlib.h>
 
 int main() {
-    struct PcTerminal terminal;
-    pcInitTerminalDefault(&terminal);
+    struct PcTerminal terminal = ansiTerminal;
     pc_colour_t c = PcColour(198, 55, 137);
-    pcSetForeground(&terminal, c);
-    printf("struct PcColour size:\n");
-    pcSetBold(&terminal, true);
-    printf("Big bold ");
-    pcSetBold(&terminal, false);
-    printf("letters"),
-    pcReset(&terminal);
-    pcSetBackground(&terminal, c);
-    printf("struct PcColour size:\n");
-    pcSetItalic(&terminal, true);
-    printf("This is italic, ");
-    pcSetItalic(&terminal, false);
-    printf("and this is not...");
-    return  EXIT_SUCCESS;
+
+    for (unsigned int i = 0; i < 256; i += 32)
+    {
+        for (unsigned int j = 0; j < 256; j += 32)
+        {
+            pc_colour_t fg = PcColour(i, j, 128);
+            pc_colour_t bg = PcColour(128, i, j);
+            terminal.setForeground(stdout, fg);
+            terminal.setBackground(stdout, bg);
+            terminal.enableBold(stdout, true);
+            printf("%03d", i);
+            terminal.enableBold(stdout, false);
+            terminal.enableItalic(stdout, true);
+            printf("%03d|", j);
+        }
+        terminal.reset(stdout);
+        printf("\n");
+    }
+    return EXIT_SUCCESS;
 }

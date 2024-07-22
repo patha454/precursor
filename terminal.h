@@ -17,47 +17,62 @@
 #include "colour.h"
 
 
+/**
+ * Select a colour to be used in future writes to the terminal.
+ */
+typedef void (*set_colour_t)(FILE* terminal, pc_colour_t colour);
+
+/**
+ * Enable or disable an an output mode for future writes to the terminal.
+ *
+ * An output mode may be a text style - such as bold or italics - or an output
+ * mode - such as the alternative screen.
+ */
+typedef void (*enable_mode_t)(FILE* terminal, bool enable);
+
+/**
+ * Toggle a single-shot control for a terminal.
+ *
+ * The classic single-shot control is resetting the terminal to its original
+ * styling.
+ */
+typedef void (*toggle_mode_t)(FILE* terminal);
+
+
+/**
+ * A device with rich I/O capabilities.
+ *
+ * `PcTerminals` is an interface for logical devices capible of
+ * formatted output or interactive input. Terminals emulators are typical
+ * terminal implementations, but could anything that interacts with a user
+ * via test.
+ *
+ * A null method in a `PcTerminal` indicates a devices does not support the
+ * relevent capability.
+ *
+ * `PcTerminal` implementations control the devices by writing escape sequences
+ * , control codes, or markup to a file, as fits their underlying device.
+ *
+ * `PcTerminal` abstracts
+ */
 struct PcTerminal
 {
-    FILE* out;
+
+    /** Change the foreground colour for future writes. */
+    set_colour_t setForeground;
+
+    /** Change the background colour for future writes. */
+    set_colour_t setBackground;
+
+    /** Enable or disable bold text for future writes. */
+    enable_mode_t enableBold;
+
+    /** Enable or disable italic text for future writes. */
+    enable_mode_t enableItalic;
+
+    /** Reset the terminal configuration. */
+    toggle_mode_t reset;
 };
 
-void pcInitTerminalDefault(struct PcTerminal* terminal);
-
-
-/**
- * Change the foreground colour.
- *
- * \param terminal Terminal insance to modify.
- * \param colour Forground colour to use for future printing.
- */
-void pcSetForeground(struct PcTerminal* terminal, pc_colour_t colour);
-
-/**
- * Change the background colour.
- *
- * \param terminal Terminal insance to modify.
- * \param colour Background colour to use for future printing.
- */
-void pcSetBackground(struct PcTerminal* terminal, pc_colour_t colour);
-
-/**
- * Controls the use of bold text.
- *
- *\param terminal Terminal instance to modify.
- *\param enable Indicates if future output should be em-boldend.
- */
-void pcSetBold(struct PcTerminal* terminal, bool enable);
-
-/**
- *
- * Controls the use of italics text.
- *
- * \param terminal Terminal instance to modify.
- * \param enable indicates if future output should be itatics'ed.
- */
-void pcSetItalic(struct PcTerminal* terminal, bool enable);
-
-void pcReset(struct PcTerminal* terminal);
 
 #endif //PRECURSOR_TERMINAL_H
