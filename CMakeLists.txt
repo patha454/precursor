@@ -3,9 +3,15 @@ project(precursor C)
 
 set(CMAKE_C_STANDARD 23)
 set(CMAKE_C_STANDARD_REQUIRED ON)
+if (
+    (${CMAKE_C_COMPILER_ID} STREQUAL "Clang") OR
+    (${CMAKE_C_COMPILER_ID} STREQUAL "GNU")
+)
+    set(CMAKE_C_FLAGS "--pedantic -Werror -Wall -Wextra")
+endif()
 if (WIN32)
     set(CMAKE_WINDOWS_EXPORT_ALL_SYMBOLS ON)
-ENDIF ()
+endif()
 
 add_library(precursor SHARED
         demo.c
