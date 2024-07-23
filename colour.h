@@ -23,8 +23,7 @@
  * Precursor always uses true-colour internally; some functions may
  * input or output in other colour depths, converting as required.
  */
-typedef struct
-{
+typedef struct {
     uint8_t red;
     uint8_t green;
     uint8_t blue;
@@ -40,4 +39,4 @@ typedef struct
  */
 pc_colour_t PcColour(uint8_t red, uint8_t green, uint8_t blue);
 
-#endif //PRECURSOR_COLOUR_H
+#endif // PRECURSOR_COLOUR_H
