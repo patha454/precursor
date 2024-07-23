@@ -1,0 +1,10 @@
+name: Style
+on: push
+
+jobs:
+  style-check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: clang-format
+        run: find . -name '*.c' -or -name '*.h' | xargs clang-format -style=file -dry-run -Werror
