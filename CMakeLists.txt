@@ -14,14 +14,14 @@ if (WIN32)
 endif ()
 
 add_library(precursor SHARED
-        demo.c
-        colour.h
-        terminal.h
-        colour.c
-        ansi_terminal.c
-        ansi_terminal.h
+        precursor/colour.h
+        precursor/terminal.h
+        precursor/colour.c
+        precursor/ansi_terminal.c
+        precursor/ansi_terminal.h
 )
+target_include_directories(precursor PUBLIC precursor)
 
-add_executable(precursor_demo demo.c)
+add_executable(precursor_demo demos/demo.c)
 target_link_libraries(precursor_demo precursor)
 
