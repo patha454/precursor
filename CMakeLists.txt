@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.28)
-project(precursor C)
+project(src C)
 
 set(CMAKE_C_STANDARD 23)
 set(CMAKE_C_STANDARD_REQUIRED ON)
@@ -14,13 +14,13 @@ if (WIN32)
 endif ()
 
 add_library(precursor SHARED
-        precursor/colour.h
-        precursor/terminal.h
-        precursor/colour.c
-        precursor/ansi_terminal.c
-        precursor/ansi_terminal.h
+        src/colour.h
+        src/terminal.h
+        src/colour.c
+        src/ansi_terminal.c
+        src/ansi_terminal.h
 )
-target_include_directories(precursor PUBLIC precursor)
+target_include_directories(precursor PUBLIC src)
 
 add_executable(precursor_demo demos/demo.c)
 target_link_libraries(precursor_demo precursor)
