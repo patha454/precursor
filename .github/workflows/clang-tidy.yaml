@@ -11,5 +11,7 @@ jobs:
         run: sudo apt-get install clang-tidy
       - name: Generate compile commands
         run: CC=clang CXX=clang cmake -DCMAKE_EXPORT_COMPILE_COMMANDS=ON -B build
+      - name: RCA
+        run: find . -name '*.h' -o -name '*.c' -not -path '*/build/_deps'
       - name: clang-tidy
-        run: find . -name '*.h' -o -name '*.c' -not -path '*/build/_deps/*' | xargs -i clang-tidy --config="" -p build/compile_commands.json {}
+        run: find . -name '*.h' -o -name '*.c' -not -path './build/_deps' | xargs -i clang-tidy --config="" -p build/compile_commands.json {}
