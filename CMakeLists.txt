@@ -31,7 +31,7 @@ endif ()
 
 if (UNIT_TESTING)
     include(FetchCMocka.cmake)
-    add_executable(precursor_unit_tests src/precursor_tests.c)
+    add_executable(precursor_unit_tests tests/precursor_tests.c)
     target_link_libraries(precursor_unit_tests PRIVATE cmocka-static)
     target_include_directories(precursor_unit_tests PRIVATE ${cmocka-header_SOURCE_DIR})
 endif()
