@@ -1,0 +1,10 @@
+set(PRECURSOR_UNIT_TEST OFF BOOL "Build unit tests")
+set(PRECURSOR_UNIT_TEST_BINARY "precursor_unit_tests")
+
+if (PRECURSOR_UNIT_TEST)
+    include(FetchCMocka.cmake)
+    add_executable("${PRECURSOR_UNIT_TEST_BINARY}" precursor_tests.c)
+    target_link_libraries("${PRECURSOR_UNIT_TEST_BINARY}" PRIVATE cmocka-static)
+    target_include_directories("${PRECURSOR_UNIT_TEST_BINARY}" PRIVATE ${cmocka-header_SOURCE_DIR})
+    add_test(NAME "Unit testing" COMMAND "${PRECURSOR_UNIT_TEST_BINARY}")
+endif()
