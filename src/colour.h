@@ -37,6 +37,6 @@ typedef struct {
  * @param blue Blue colour intensity.
  * @return
  */
-pc_colour_t PcColour(uint8_t red, uint8_t green, uint8_t blue);
+extern pc_colour_t PcColour(uint8_t red, uint8_t green, uint8_t blue);
 
 #endif // PRECURSOR_COLOUR_H
