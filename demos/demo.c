@@ -24,5 +24,11 @@ int main()
         terminal.reset(stdout);
         printf("\n");
     }
+
+    int r = 5;
+    int c;
+    printf("\x1b[6n");
+    printf("scanf returned %d\n", scanf("\x1b[%d;%dR", &r, &c));
+    printf("R: %d", r);
     return EXIT_SUCCESS;
 }
