@@ -29,6 +29,7 @@ add_library("${PRECURSOR_LIBRARY_NAME}" SHARED
         src/colour.c
         src/ansi_terminal.c
         src/ansi_terminal.h
+        src/fragment.h
 )
 target_include_directories("${PRECURSOR_LIBRARY_NAME}" PUBLIC src)
 
